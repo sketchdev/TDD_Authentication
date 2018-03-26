@@ -10,7 +10,7 @@ namespace Tdd_Authentication_Tests
     public class AuthenticationFailed_Tests
     {
         [TestMethod]
-        public void TestEmptyUser_EmptyPassword_FailsAuthentication()
+        public void TestEmptyUser_EmptyPassword_Fails()
         {
             var username = "";
             var password = "";
@@ -22,6 +22,36 @@ namespace Tdd_Authentication_Tests
             Assert.IsFalse(authenticationResponse.Success);
             Assert.AreEqual("Username or password are incorrect.", authenticationResponse.Message);
             
+        }
+
+        [TestMethod]
+        public void TestNonEmptyUser_EmptyPassword_Fails()
+        {
+            var username = "username";
+            var password = "";
+
+            LoginController loginController = new LoginController();
+
+            AuthenticationResponse authenticationResponse = loginController.Authenticate(username, password);
+
+            Assert.IsFalse(authenticationResponse.Success);
+            Assert.AreEqual("Username or password are incorrect.", authenticationResponse.Message);
+
+        }
+
+        [TestMethod]
+        public void TestEmptyUser_NonEmptyPassword_Fails()
+        {
+            var username = "";
+            var password = "password";
+
+            LoginController loginController = new LoginController();
+
+            AuthenticationResponse authenticationResponse = loginController.Authenticate(username, password);
+
+            Assert.IsFalse(authenticationResponse.Success);
+            Assert.AreEqual("Username or password are incorrect.", authenticationResponse.Message);
+
         }
     }
 }
