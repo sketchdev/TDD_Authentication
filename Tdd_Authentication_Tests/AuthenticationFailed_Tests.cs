@@ -15,7 +15,7 @@ namespace Tdd_Authentication_Tests
             var username = "";
             var password = "";
 
-            LoginController loginController = new LoginController();
+            LoginController loginController = new LoginController(null);
 
             AuthenticationResponse authenticationResponse = loginController.Authenticate(username, password);
 
@@ -30,7 +30,7 @@ namespace Tdd_Authentication_Tests
             var username = "username";
             var password = "";
 
-            LoginController loginController = new LoginController();
+            LoginController loginController = new LoginController(null);
 
             AuthenticationResponse authenticationResponse = loginController.Authenticate(username, password);
 
@@ -45,7 +45,7 @@ namespace Tdd_Authentication_Tests
             var username = "";
             var password = "password";
 
-            LoginController loginController = new LoginController();
+            LoginController loginController = new LoginController(null);
 
             AuthenticationResponse authenticationResponse = loginController.Authenticate(username, password);
 
